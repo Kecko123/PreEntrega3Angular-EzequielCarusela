@@ -1,0 +1,51 @@
+<h1 appBigtext class="text-center principalText">Añadir cursos a la lista</h1>
+
+<table mat-table>
+  <!--
+    
+    [dataSource]="courses" 
+
+    ERROR DE LA TERMINAL: 
+    X [ERROR] NG8002: Can't bind to 'dataSource' since it isn't a known property of 'table'. [plugin angular-compiler]
+
+    src/app/layouts/dashboard/pages/courses/courses.component.html:3:17:
+      3 │ <table mat-table [dataSource]="courses">
+        ╵                  ~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component CoursesComponent.
+
+    src/app/layouts/dashboard/pages/courses/courses.component.ts:7:15:
+      7 │   templateUrl: './courses.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+   -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let student"> {{student.id}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="teacher">
+    <th mat-header-cell *matHeaderCellDef> Nombre y Apellido </th>
+    <td mat-cell *matCellDef="let student"></td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let student"> {{student.email}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef> Pais </th>
+    <td mat-cell *matCellDef="let student"> {{student.country}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Numero de teléfono </th>
+    <td mat-cell *matCellDef="let student"> {{student.phonenumber}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
