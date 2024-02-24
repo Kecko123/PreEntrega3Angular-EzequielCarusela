@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { UsersModule } from './pages/users/users.module';
 import { SharedModule } from '../../shared/shared.module';
 import { BigtextDirective } from '../../shared/bigtext.directive';
-import {MatListModule} from '@angular/material/list'
+import { MatListModule } from '@angular/material/list'
 import { RouterModule } from '@angular/router';
 import { UsersComponent } from './pages/users/users.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { InscriptionsComponent } from './pages/inscriptions/inscriptions.component';
+import { adminGuard } from '../../core/guards/admin.guard';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { InscriptionsComponent } from './pages/inscriptions/inscriptions.compone
     RouterModule.forChild([
       {
         path: 'alumns',
+        canActivate: [adminGuard],
         component: UsersComponent
       },
       {
@@ -39,10 +41,12 @@ import { InscriptionsComponent } from './pages/inscriptions/inscriptions.compone
       },
       {
         path: 'courses',
+        canActivate: [adminGuard],
         component: CoursesComponent
       },
       {
         path: 'inscriptions',
+        canActivate: [adminGuard],
         component: InscriptionsComponent
       },
       {
@@ -55,4 +59,4 @@ import { InscriptionsComponent } from './pages/inscriptions/inscriptions.compone
     DashboardComponent
   ]
 })
-export class DashboardModule {}
+export class DashboardModule { }

@@ -9,6 +9,8 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { ValidatorsErrorsPipe } from './validators-errors.pipe';
 
 
 
@@ -16,12 +18,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     FullnamePipe,
-    BigtextDirective
+    BigtextDirective,
+    ValidatorsErrorsPipe
   ],
   imports: [
     CommonModule,
   ],
-  exports:[
+  exports: [
     FullnamePipe,
     BigtextDirective,
     MatFormFieldModule,
@@ -30,7 +33,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
+    ValidatorsErrorsPipe,
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from '../users/models';
+
 
 @Component({
   selector: 'app-inscriptions',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './inscriptions.component.scss'
 })
 export class InscriptionsComponent {
+  displayedColumns: string[] = ['id', 'name', 'country', 'phonenumber', 'email', 'modify'];
+
+  alumns: User[] = []
 
 }

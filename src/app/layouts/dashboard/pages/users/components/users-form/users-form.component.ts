@@ -10,7 +10,7 @@ export class UsersFormComponent {
   userForm: FormGroup;
 
   @Output()
-  studentUploaded = new EventEmitter
+  userUploaded = new EventEmitter
 
   constructor(private fb: FormBuilder) {
     this.userForm = this.fb.group({
@@ -23,10 +23,10 @@ export class UsersFormComponent {
   }
 
   onSubmit(): void {
-    if(this.userForm.invalid){
+    if (this.userForm.invalid) {
       this.userForm.markAllAsTouched();
-    } else{
-      this.studentUploaded.emit(this.userForm.value);
+    } else {
+      this.userUploaded.emit(this.userForm.value);
       this.userForm.reset();
     }
   }

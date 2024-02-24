@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UsersService } from './users.service';
-import { Student } from './models';
+import { User } from './models';
 
 
 
@@ -13,23 +13,22 @@ import { Student } from './models';
 
 export class UsersComponent {
   displayedColumns: string[] = ['id', 'name', 'country', 'phonenumber', 'email', 'modify'];
-  onStudentSubmited(evt: Student): void{
-    this.alumns = [...this.alumns, {...evt, id: this.alumns.length+1}]
-    console.log(this.alumns)
+  onUserSubmited(evt: User): void {
+    this.alumns = [...this.alumns, { ...evt, id: this.alumns.length + 1 }]
   }
 
-  alumns: Student[]= []
+  alumns: User[] = []
 
-  constructor(private usersService: UsersService){
-    this.usersService.getStudent().subscribe({
-      next:(alumns) => {
+  constructor(private usersService: UsersService) {
+    this.usersService.getUser().subscribe({
+      next: (alumns) => {
         this.alumns = alumns
       }
     })
   }
-  
-  onDelete(id:number){
-    this.usersService.deleteStudent(id).subscribe({
+
+  onDelete(id: number) {
+    this.usersService.deleteUser(id).subscribe({
       next: (alumns) => {
         this.alumns = alumns
         console.log(alumns)

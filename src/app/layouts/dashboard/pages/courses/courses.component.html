@@ -1,51 +1,31 @@
 <h1 appBigtext class="text-center principalText">Añadir cursos a la lista</h1>
 
-<table mat-table>
-  <!--
-    
-    [dataSource]="courses" 
-
-    ERROR DE LA TERMINAL: 
-    X [ERROR] NG8002: Can't bind to 'dataSource' since it isn't a known property of 'table'. [plugin angular-compiler]
-
-    src/app/layouts/dashboard/pages/courses/courses.component.html:3:17:
-      3 │ <table mat-table [dataSource]="courses">
-        ╵                  ~~~~~~~~~~~~~~~~~~~~~~
-
-  Error occurs in the template of component CoursesComponent.
-
-    src/app/layouts/dashboard/pages/courses/courses.component.ts:7:15:
-      7 │   templateUrl: './courses.component.html',
-        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~
-   -->
+<table mat-table class="mat-elevation-z8 tableStyle">
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let student"> {{student.id}} </td>
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let course">{{ course.id }}</td>
   </ng-container>
-
 
   <ng-container matColumnDef="teacher">
-    <th mat-header-cell *matHeaderCellDef> Nombre y Apellido </th>
-    <td mat-cell *matCellDef="let student"></td>
+    <th mat-header-cell *matHeaderCellDef>Nombre y Apellido</th>
+    <td mat-cell *matCellDef="let course"></td>
   </ng-container>
-
 
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Email </th>
-    <td mat-cell *matCellDef="let student"> {{student.email}} </td>
+    <th mat-header-cell *matHeaderCellDef>Fecha</th>
+    <td mat-cell *matCellDef="let course">{{ course.date }}</td>
   </ng-container>
 
-
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef> Pais </th>
-    <td mat-cell *matCellDef="let student"> {{student.country}} </td>
+    <th mat-header-cell *matHeaderCellDef>Tipo</th>
+    <td mat-cell *matCellDef="let course">{{ course.type }}</td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Numero de teléfono </th>
-    <td mat-cell *matCellDef="let student"> {{student.phonenumber}} </td>
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let course">{{ course.actions }}</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let rows; columns: displayedColumns"></tr>
 </table>

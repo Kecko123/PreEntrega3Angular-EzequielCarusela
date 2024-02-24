@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InscriptionsComponent } from './inscriptions.component';
+import { SharedModule } from '../../../../shared/shared.module';
 
 
 
@@ -9,7 +10,8 @@ import { InscriptionsComponent } from './inscriptions.component';
     InscriptionsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 export class InscriptionsModule { }
