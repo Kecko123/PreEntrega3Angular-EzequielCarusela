@@ -14,7 +14,11 @@ import { User } from './models';
 export class UsersComponent {
   displayedColumns: string[] = ['id', 'name', 'country', 'phonenumber', 'email', 'modify'];
   onUserSubmited(evt: User): void {
-    this.alumns = [...this.alumns, { ...evt, id: this.alumns.length + 1 }]
+    this.usersService.onUserSubmited({ ...evt, id: new Date().getTime() }).subscribe({
+      next: (users) => {
+        this.alumns = [...users]
+      }
+    })
   }
 
   alumns: User[] = []
